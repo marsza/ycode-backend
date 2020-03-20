@@ -34,8 +34,12 @@ class WebsitesController extends Controller
         return response()->json($website);
     }
 
-    public function filter(Request $request) 
+    public function filter(Request $request, $id) 
     {
+        // Search by URI ID
+        if (isset($id)) {
+            return response()->json(Websites::id($id));
+        }
         // Search by ID
         if ($request->has('id')) {
             return response()->json(Websites::where('id', $request->input('id'))->get());
