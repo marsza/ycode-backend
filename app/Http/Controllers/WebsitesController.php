@@ -45,6 +45,12 @@ class WebsitesController extends Controller
         ]);
     }
 
+    public function delete($id) {
+        $website = Websites::find($id);
+        $website->delete();
+        return response()->json('Deleted Successfully');
+    }
+
     public function filter(Request $request, $id) 
     {
         // Search by URI ID
