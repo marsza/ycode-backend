@@ -14,7 +14,7 @@ class WebsitesController extends Controller
      */
     public function index()
     {
-        return response()->json(Websites::all()->orderBy('id'));
+        return response()->json(Websites::all());
     }
 
     /**
