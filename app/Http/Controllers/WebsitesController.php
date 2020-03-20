@@ -39,7 +39,10 @@ class WebsitesController extends Controller
         $website->url = $request->input('url');
         $website->save();
 
-        return response()->json($website);
+        return response()->json([
+            'status' => true,
+            'message' => $website
+        ]);
 
         
     }
@@ -61,7 +64,7 @@ class WebsitesController extends Controller
         $website->url = $request->input('url');
 
         return response()->json([
-            'updated' => $website->save(),
+            'status' => $website->save(),
             'data' => $website
         ]);
     }
