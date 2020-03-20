@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('websites', 'WebsitesController@index');
 Route::post('websites', 'WebsitesController@create');
+Route::post('websites/update/{id}', 'WebsiteController@update');
 // Search get Route
 Route::post('websites/search/{id}', 'WebsitesController@filter');
 Route::post('websites/search', 'WebsitesController@filter');

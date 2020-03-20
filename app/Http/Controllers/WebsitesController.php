@@ -34,6 +34,17 @@ class WebsitesController extends Controller
         return response()->json($website);
     }
 
+    public function update($id, Request $request) {
+        $website = Websites::find($id);
+        $website->name = $request->input('name');
+        $website->url = $request->input('url');
+
+        return response()->json([
+            'updated' => $website->save(),
+            'data' => $website
+        ]);
+    }
+
     public function filter(Request $request, $id) 
     {
         // Search by URI ID
