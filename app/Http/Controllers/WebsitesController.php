@@ -26,15 +26,36 @@ class WebsitesController extends Controller
     {
         // $websites = new Website($request->all());
 
+        $ifNotUnique = Websites::where('url', $request->input('url'))->get();
+
+        if (isset($ifNotUnique)) {
+            return response()->json([
+                'status' => false,
+                'message' => "This URL is taken."
+            ]);
+        } 
         $website = new Websites;
         $website->name = $request->input('name');
         $website->url = $request->input('url');
         $website->save();
 
         return response()->json($website);
+
+        
     }
 
     public function update($id, Request $request) {
+
+        $ifNotUnique = Websites::where('url', $request->input('url'))->get();
+
+        if (isset($ifNotUnique)) {
+            return response()->json([
+                'status' => false,
+                'message' => "This URL is taken."
+            ]);
+        }
+
+
         $website = Websites::find($id);
         $website->name = $request->input('name');
         $website->url = $request->input('url');
