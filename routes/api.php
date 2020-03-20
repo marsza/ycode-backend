@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('websites', 'WebsitesController@index');
+Route::post('websites', 'WebsitesController@create');
+// Search get Route
+Route::post('websites/search', 'WebsitesController@filter');
