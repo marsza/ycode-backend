@@ -38,7 +38,7 @@ class WebsitesController extends Controller
     {
         // Search by URI ID
         if (isset($id)) {
-            return response()->json(Websites::id($id));
+            return response()->json(Websites::find($id));
         }
         // Search by ID
         if ($request->has('id')) {
