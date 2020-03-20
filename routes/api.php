@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('websites', 'WebsitesController@index');
 Route::post('websites', 'WebsitesController@create');
 Route::post('websites/update/{id}', 'WebsitesController@update');
-Route::delete('websites/{id}', 'WebsitesContorller@delete');
+Route::delete('websites/{id}', 'WebsitesController@delete');
 // Search get Route
 Route::post('websites/search/{id}', 'WebsitesController@filter');
 Route::post('websites/search', 'WebsitesController@filter');
