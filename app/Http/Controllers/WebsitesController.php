@@ -51,7 +51,7 @@ class WebsitesController extends Controller
 
         $ifNotUnique = Websites::where('url', $request->input('url'))->get();
 
-        if (isset($ifNotUnique)) {
+        if (isset($ifNotUnique->url)) {
             return response()->json([
                 'status' => false,
                 'message' => "This URL is taken."
